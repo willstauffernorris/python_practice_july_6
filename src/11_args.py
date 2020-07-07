@@ -38,18 +38,31 @@ a = [7, 6, 5, 4]
 # You have to put an asterisk * in front of the "a"
 print(f2(*a))    # Should print 22
 
-'''
+
 # Write a function f3 that accepts either one or two arguments. If one argument,
 # it returns that value plus 1. If two arguments, it returns the sum of the
 # arguments.
 # Note: Google "python default arguments" for a hint.
-
+print("F3")
 # YOUR CODE HERE
-def f3(arg1, arg2):
-    if 
+def f3(*arg):
+    if len(arg) == 1:
+        return arg[0] +1 
+    elif len(arg) == 2:
+        return arg[0] + arg[1]
 print(f3(1, 2))  # Should print 3
 print(f3(8))     # Should print 9
 
+print("F3 version 2")
+
+
+# YOUR CODE HERE
+def f3(arg1, arg2=1):
+    sum = arg1 + arg2
+    return sum
+
+print(f3(1, 2))  # Should print 3
+print(f3(8))     # Should print 9
 
 # Write a function f4 that accepts an arbitrary number of keyword arguments and
 # prints out the keys and values like so:
@@ -60,11 +73,18 @@ print(f3(8))     # Should print 9
 # Note: Google "python keyword arguments".
 
 # YOUR CODE HERE
+print("F4")
+def f4(**kwargs):
+
+    for key, value in kwargs.items():
+        print("key: %s, value: %s" %(key, value))
+
 
 # Should print
 # key: a, value: 12
 # key: b, value: 30
 f4(a=12, b=30)
+
 
 # Should print
 # key: city, value: Berkeley
@@ -77,6 +97,7 @@ d = {
     "hp": 3
 }
 
+
 # How do you have to modify the f4 call below to make this work?
-f4(d)
-'''
+# add ** in front of the 'd'
+f4(**d)
